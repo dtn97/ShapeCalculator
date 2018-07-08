@@ -1944,6 +1944,9 @@ namespace ShapeCalculator
 			// aapt resource value: 0x7F010002
 			public const int mainLayout = 2130771970;
 			
+			// aapt resource value: 0x7F010003
+			public const int mainMenuLayout = 2130771971;
+			
 			// aapt resource value: 0x7F0C0013
 			public const int media_actions = 2131492883;
 			
@@ -2221,6 +2224,9 @@ namespace ShapeCalculator
 			
 			// aapt resource value: 0x7F020002
 			public const int Main = 2130837506;
+			
+			// aapt resource value: 0x7F020003
+			public const int MainMenu_Layout = 2130837507;
 			
 			// aapt resource value: 0x7F0F0001
 			public const int notification_action = 2131689473;

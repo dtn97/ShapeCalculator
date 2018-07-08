@@ -115,6 +115,8 @@
     <Compile Include="Calc\VarNode.cs" />
     <Compile Include="GUI\MainActivity.cs" />
     <Compile Include="GUI\MainMenu.cs" />
+    <Compile Include="GUI\About.cs" />
+    <Compile Include="GUI\Start.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -130,6 +132,7 @@
     <AndroidResource Include="Resources\mipmap-xhdpi\Icon.png" />
     <AndroidResource Include="Resources\mipmap-xxhdpi\Icon.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\Icon.png" />
+    <AndroidResource Include="Resources\layout\MainMenu_Layout.axml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />
