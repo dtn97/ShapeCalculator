@@ -1,0 +1,24 @@
+﻿a
+a = S / b
+S / b
+S b
+a
+a = ( p - 2 * b ) / 2
+( p - 2 * b ) / 2
+p b
+b
+b = S / a
+S / a
+S a
+b
+b = ( p - 2 * a )
+( p - 2 * a )
+p a
+S
+S = a * b
+a * b
+a b
+p
+p = ( a + b ) * 2
+( a + b ) * 2
+a b

@@ -1,0 +1,184 @@
+﻿S
+S = a * ha / 2
+0.5 * a * ha
+a ha
+S
+S = b * hb / 2
+0.5 * b * hb
+b hb
+S
+S = c * hc / 2
+0.5 * c * hc
+c hc
+S
+S = b * c * sinA / 2
+b * c * sin ( A ) / 2
+b c A
+S
+S = c * a * sinB / 2
+c * a * sin ( B ) / 2
+c a B
+S
+S = a * b * sinC / 2
+a * b * sin ( C ) / 2
+a b C
+S
+S = a * b * c / ( 4 * R )
+a * b * c / ( 4 * R )
+a c b R
+S
+S = p * r
+p * r
+p r
+S
+S = ( p * ( p - a ) * ( p - b ) * ( p - c ) ) ^ ( 1 / 2 )
+( p * ( p - a ) * ( p - b ) * ( p - c ) ) ^ ( 1 / 2 )
+p a b c
+p
+p = ( a + b + c ) / 2
+( a + b + c ) / 2
+a b c
+p
+p = S / r
+S / r
+S r
+a
+a = 2 * S / ha
+2 * S / ha
+S ha
+a
+a = 2 * R * sinA
+2 * R * sin ( A )
+R A
+a
+a = ( b * b + c * c - 2 * b * c * cos ( A ) ) ^ ( 1 / 2)
+( b * b + c * c - 2 * b * c * cos ( A ) ) ^ ( 1 / 2 )
+b c A
+a
+a = 2 * p - b - c
+2 * p - b - c
+p b c
+a
+a = 2 * S / b / sin ( C )
+2 * S / b / sin ( C )
+S b C
+a
+a = 2 * S / c / sin ( B )
+2 * S / c / sin ( B )
+S c B
+b
+b = 2 * S / hb
+2 * S / hb
+S hb
+b
+b = 2 * R * sinB
+2 * R * sin ( B )
+R B
+b
+b = ( a * a + c * c - 2 * a * c * cos ( B ) ) ^ ( 1 / 2)
+( a * a + c * c - 2 * a * c * cos ( B ) ) ^ ( 1 / 2 )
+a c B
+b
+b = 2 * p - a - c
+2 * p - a - c
+p a c
+b
+b = 2 * S / a / sin ( C )
+2 * S / a / sin ( C )
+S a C
+b
+b = 2 * S / c / sin ( A )
+2 * S / c / sin ( A )
+S c A
+c
+c = 2 * S / hc
+2 * S / hc
+S hc
+c
+c = 2 * R * sinC
+2 * R * sin ( C )
+R C
+c
+c = ( a * a + b * b - 2 * a * b * cos ( C ) ) ^ ( 1 / 2)
+( a * a + a * a - 2 * a * b * cos ( C ) ) ^ ( 1 / 2 )
+a b C
+c
+c = 2 * p - a - b
+2 * p - a - b
+p a b
+c
+c = 2 * S / a / sin ( B )
+2 * S / a / sin ( B )
+S b B
+c
+c = 2 * S / b / sin ( A )
+2 * S / b / sin ( A )
+S b A
+ha
+ha = 2 * S / a
+2 * S / a
+S a
+hb
+hb = 2 * S / b
+2 * S / b
+S b
+hc
+hc = 2 * S / c
+2 * S / c
+S c
+R
+R = a / sinA / 2
+a / sin ( A ) / 2
+a A
+R
+R = b / sinB / 2
+b / sin ( B ) / 2
+b B
+R
+R = c / sinC / 2
+c / sin ( C ) / 2
+c C
+R
+R = a * b * c / 4 / S
+a * b * c / 4 / S
+a b c S
+r
+r = S / p
+S / p
+S p
+A
+A = arccos ( ( b ^ 2 + c ^ 2 - a ^ 2 ) / 2 / b / c )
+arccos ( ( b ^ 2 + c ^ 2 - a ^ 2 ) / 2 / b / c )
+b c a
+A
+A = arcsin ( a / 2 / R )
+arcsin ( a / 2 / R )
+a R
+A
+A = arcsin ( 2 * S / b / c )
+arcsin ( 2 * S / b / c )
+S b c
+B
+B = arccos ( ( c ^ 2 + c ^ 2 - b ^ 2 ) / 2 / a / c )
+arccos ( ( a ^ 2 + c ^ 2 - b ^ 2 ) / 2 / a / c )
+a b c
+B
+B = arcsin ( b / 2 / R )
+arcsin ( b / 2 / R )
+b R
+B
+B = arcsin ( 2 * S / a / c )
+arcsin ( 2 * S / a / c )
+S a c
+C
+C = arccos ( ( b ^ 2 + a ^ 2 - c ^ 2 ) / 2 / b / a )
+arccos ( ( b ^ 2 + a ^ 2 - c ^ 2 ) / 2 / b / a )
+b a c
+C
+C = arcsin ( c / 2 / R )
+arcsin ( c / 2 / R )
+c R
+C
+C = arcsin ( 2 * S / b / a )
+arcsin ( 2 * S / b / a )
+S b a
