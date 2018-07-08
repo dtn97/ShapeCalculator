@@ -23,11 +23,13 @@ namespace ShapeCalculator
         private List<string> shapes;
         private List<string> types;
 
-        Button btnViewResult;
-        ListView lvResult;
+        private ListView lvResult;
 
-        Spinner spinner1;
-        Spinner spinner2;
+        private Spinner spinner1;
+        private Spinner spinner2;
+
+        private Button btnAdd;
+        private Button btnDelete;
 
         public override void OnCreate(Bundle savedInstanceState)
         {
@@ -38,6 +40,7 @@ namespace ShapeCalculator
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
+            this.typeSelected = "Variable";
             shapes = IO.ShapeReader.getInstance().getShapes(Activity.Assets, "Shape.txt");
             types = new List<string>();
             types.Add("Variable");
@@ -46,12 +49,51 @@ namespace ShapeCalculator
             // Use this to return your custom view for this Fragment
             View view = inflater.Inflate(Resource.Layout.StartView_Layout, container, false);
 
-            initBtnViewResult(view);
             initLvResult(view);
             initSpinners(view);
+            initBtnAdd(view);
+            initBtnDelete(view);
+            InitBtnBack(view);
 
             return view;
             //return base.OnCreateView(inflater, container, savedInstanceState);
+        }
+
+        private void InitBtnBack(View view)
+        {
+            Button button1 = view.FindViewById<Button>(Resource.Id.btnStartViewBack);
+            button1.Click += delegate {
+
+                FragmentTransaction fragmentTransaction = this.FragmentManager.BeginTransaction();
+                fragmentTransaction.Replace(Resource.Id.mainLayout, new Start());
+                fragmentTransaction.Commit();
+            };
+
+            Button button2 = view.FindViewById<Button>(Resource.Id.btnStartViewMenu);
+            button2.Click += delegate {
+
+                FragmentTransaction fragmentTransaction = this.FragmentManager.BeginTransaction();
+                fragmentTransaction.Replace(Resource.Id.mainLayout, new MainMenu());
+                fragmentTransaction.Commit();
+            };
+        }
+
+        private void initBtnDelete(View view)
+        {
+            btnDelete = view.FindViewById<Button>(Resource.Id.btnStartViewAdd);
+            btnDelete.Click += delegate {
+
+
+            };
+        }
+
+        private void initBtnAdd(View view)
+        {
+            btnAdd = view.FindViewById<Button>(Resource.Id.btnStartViewAdd);
+            btnAdd.Click += delegate {
+            
+
+            };
         }
 
         private void initSpinners(View view)
@@ -68,26 +110,26 @@ namespace ShapeCalculator
         private void spinner1_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e){
             
             this.shapeSelected = shapes[e.Position];
+            updateListView();
         }
 
         private void spinner2_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
         {
             this.typeSelected = types[e.Position];
+            updateListView();
         }
 
-        private void initBtnViewResult(View view)
+        private void updateListView()
         {
-            btnViewResult = view.FindViewById<Button>(Resource.Id.btnStartViewResult);
-            btnViewResult.Click += delegate {
-                if (this.typeSelected.Equals("Variable")){
-                    List<string> listVars = IO.VarReader.getInstance().getVariables(Activity.Assets, this.shapeSelected);
-                    lvResult.Adapter = new ListViewAdapter(listVars);
-                }
-                else{
-                    lvResult.Adapter = new ListViewAdapter(IO.FuncReader.getInstance().getFunctions(Activity.Assets, this.shapeSelected));
-                }
-
-            };
+            if (this.typeSelected.Equals("Variable"))
+            {
+                List<string> listVars = IO.VarReader.getInstance().getVariables(Activity.Assets, this.shapeSelected);
+                lvResult.Adapter = new ListViewAdapter(listVars);
+            }
+            else
+            {
+                lvResult.Adapter = new ListViewAdapter(IO.FuncReader.getInstance().getFunctions(Activity.Assets, this.shapeSelected));
+            }
         }
 
         private void initLvResult(View view)
