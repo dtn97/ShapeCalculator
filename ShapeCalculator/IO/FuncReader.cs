@@ -44,5 +44,14 @@ namespace IO
 
             return res;
         }
+
+        public List<string> getFunctions(AssetManager assets, string type){
+            List<List<string>> tmp = this.getFunc(assets, type);
+            List<String> res = new List<string>();
+            foreach(List<string> i in tmp){
+                res.Add(i[1]);
+            }
+            return res;
+        }
     }
 }

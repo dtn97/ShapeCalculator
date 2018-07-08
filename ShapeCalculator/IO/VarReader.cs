@@ -32,5 +32,16 @@ namespace IO
             }
             return res;
         }
+
+        public List<string> getVariables(AssetManager assets, string type)
+        {
+            string str;
+            using (StreamReader sr = new StreamReader(assets.Open(type + "Vars.txt")))
+            {
+                str = sr.ReadToEnd();
+            }
+            string[] lines = str.Split(new string[] { "\n" }, StringSplitOptions.RemoveEmptyEntries);
+            return new List<string>(lines);
+        }
     }
 }

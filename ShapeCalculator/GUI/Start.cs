@@ -55,8 +55,9 @@ namespace ShapeCalculator
         {
             btnView = view.FindViewById<Button>(Resource.Id.btnStartView);
             btnView.Click += delegate {
-            
-
+                FragmentTransaction fragmentTransaction = this.FragmentManager.BeginTransaction();
+                fragmentTransaction.Replace(Resource.Id.mainLayout, new StartView());
+                fragmentTransaction.Commit();
             };
         }
 
