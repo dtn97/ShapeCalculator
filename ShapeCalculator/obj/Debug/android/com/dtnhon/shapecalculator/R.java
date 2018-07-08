@@ -2147,8 +2147,10 @@ containing a value of this type.
         public static final int btnStartCalcCalc=0x7f0b0090;
         public static final int btnStartCalcEnter=0x7f0b008e;
         public static final int btnStartEdit=0x7f0b0089;
+        public static final int btnStartResultBack=0x7f0b0094;
+        public static final int btnStartResultMenu=0x7f0b0095;
         public static final int btnStartView=0x7f0b0088;
-        public static final int btnStartViewResult=0x7f0b0093;
+        public static final int btnStartViewResult=0x7f0b0098;
         public static final int buttonPanel=0x7f0b003e;
         public static final int cancel_action=0x7f0b0077;
         public static final int checkbox=0x7f0b004e;
@@ -2180,12 +2182,12 @@ containing a value of this type.
         public static final int listViewNode=0x7f0b006b;
         public static final int list_item=0x7f0b003c;
         public static final int lvStartCalcResult=0x7f0b008f;
-        public static final int lvStartViewResult=0x7f0b0094;
+        public static final int lvStartViewResult=0x7f0b0099;
         public static final int mainLayout=0x7f0b006d;
         public static final int mainMenuIcon=0x7f0b006f;
         public static final int mainMenuLayout=0x7f0b006e;
         public static final int media_actions=0x7f0b0079;
-        public static final int message=0x7f0b0095;
+        public static final int message=0x7f0b009a;
         public static final int middle=0x7f0b0023;
         public static final int multiply=0x7f0b001a;
         public static final int never=0x7f0b002d;
@@ -2223,12 +2225,15 @@ containing a value of this type.
         public static final int split_action_bar=0x7f0b0007;
         public static final int spnStartCalcShape=0x7f0b008a;
         public static final int spnStartCalcVar=0x7f0b008c;
-        public static final int spnStartViewShape=0x7f0b0091;
-        public static final int spnStartViewType=0x7f0b0092;
+        public static final int spnStartViewShape=0x7f0b0096;
+        public static final int spnStartViewType=0x7f0b0097;
         public static final int src_atop=0x7f0b001c;
         public static final int src_in=0x7f0b001d;
         public static final int src_over=0x7f0b001e;
         public static final int startLayout=0x7f0b0086;
+        public static final int startResultLayout=0x7f0b0091;
+        public static final int startResultListView=0x7f0b0093;
+        public static final int startRresultTextview=0x7f0b0092;
         public static final int status_bar_latest_event_content=0x7f0b0078;
         public static final int submenuarrow=0x7f0b0051;
         public static final int submit_area=0x7f0b0062;
@@ -2310,9 +2315,10 @@ containing a value of this type.
         public static final int select_dialog_singlechoice_material=0x7f04002f;
         public static final int start_layout=0x7f040030;
         public static final int startcalc_layout=0x7f040031;
-        public static final int startview_layout=0x7f040032;
-        public static final int support_simple_spinner_dropdown_item=0x7f040033;
-        public static final int tooltip=0x7f040034;
+        public static final int startresult_layout=0x7f040032;
+        public static final int startview_layout=0x7f040033;
+        public static final int support_simple_spinner_dropdown_item=0x7f040034;
+        public static final int tooltip=0x7f040035;
     }
     public static final class mipmap {
         public static final int icon=0x7f030000;

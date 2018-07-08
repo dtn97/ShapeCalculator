@@ -64,6 +64,23 @@ namespace ShapeCalculator
         private void initBtnCalculate(View view)
         {
             btnCalculate = view.FindViewById<Button>(Resource.Id.btnStartCalcCalc);
+            btnCalculate.Click += delegate {
+                while (vars.Count > 0){
+                    inputVars.Add(vars[0], -1);
+                    vars.RemoveAt(0);
+                }
+                StartResult myFragment = new StartResult();
+                FragmentTransaction ft = this.FragmentManager.BeginTransaction();
+                ft.Replace(Resource.Id.mainLayout, myFragment);
+                Bundle args = new Bundle();
+                args.PutString("type", shapeSelected);
+                foreach (KeyValuePair<string, double> i in inputVars)
+                {
+                    args.PutString(i.Key, i.Value.ToString());
+                }
+                myFragment.Arguments = args;
+                ft.Commit();
+            };
         }
 
         private void initBtnEnter(View view)
