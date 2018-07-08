@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#506670">
+    <Spinner
+        android:layout_alignParentTop="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20px"
+        android:id="@+id/spnStartCalcShape" />
+    <LinearLayout
+        android:layout_below="@id/spnStartCalcShape"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:background="#506670"
+        android:id="@+id/StartCalcLayoutControl">
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="70px"
+            android:layout_weight="1"
+            android:layout_margin="20px"
+            android:padding="5px"
+            android:textSize="15dp"
+            android:id="@+id/spnStartCalcVar" />
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="70px"
+            android:layout_weight="1"
+            android:layout_margin="20px"
+            android:padding="5px"
+            android:textSize="15dp"
+            android:id="@+id/txtStartCalcVar" />
+    </LinearLayout>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="70px"
+        android:text="Enter"
+        android:id="@+id/btnStartCalcEnter"
+        android:background="#00ac00"
+        android:layout_margin="20px"
+        android:padding="5px"
+        android:textSize="15dp"
+        android:layout_below="@id/StartCalcLayoutControl" />
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/lvStartCalcResult"
+        android:layout_below="@id/btnStartCalcEnter" />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="70px"
+        android:text="Calculate"
+        android:id="@+id/btnStartCalcCalc"
+        android:background="#00ac00"
+        android:layout_margin="20px"
+        android:padding="5px"
+        android:textSize="15dp"
+        android:layout_alignParentBottom="true" />
+</RelativeLayout>

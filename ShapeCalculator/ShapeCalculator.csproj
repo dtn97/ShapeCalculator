@@ -120,6 +120,7 @@
     <Compile Include="GUI\ListViewAdapter.cs" />
     <Compile Include="IO\AboutReader.cs" />
     <Compile Include="GUI\StartView.cs" />
+    <Compile Include="GUI\StartCalc.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -141,6 +142,7 @@
     <AndroidResource Include="Resources\drawable\calcicon.png" />
     <AndroidResource Include="Resources\layout\Start_Layout.axml" />
     <AndroidResource Include="Resources\layout\StartView_Layout.axml" />
+    <AndroidResource Include="Resources\layout\StartCalc_Layout.axml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />
