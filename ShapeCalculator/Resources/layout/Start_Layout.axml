@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/startLayout"
+    android:background="#506670"
+    android:gravity="center_horizontal">
+    <ImageView
+        android:layout_width="300px"
+        android:layout_height="300px"
+        android:background="@drawable/calcicon"
+        android:layout_marginTop="100px"
+        android:layout_marginBottom="50px"
+        android:padding="20px" />
+    <Button
+        android:layout_width="300px"
+        android:layout_height="70px"
+        android:text="Calc"
+        android:id="@+id/btnStartCalc"
+        android:background="#00ac00"
+        android:layout_margin="20px"
+        android:padding="5px"
+        android:textSize="15dp"
+        android:gravity="center" />
+    <Button
+        android:layout_width="300px"
+        android:layout_height="70px"
+        android:text="View"
+        android:id="@+id/btnStartView"
+        android:background="#00ac00"
+        android:layout_margin="20px"
+        android:padding="5px"
+        android:textSize="15dp"
+        android:gravity="center" />
+    <Button
+        android:layout_width="300px"
+        android:layout_height="70px"
+        android:text="Edit"
+        android:id="@+id/btnStartEdit"
+        android:background="#00ac00"
+        android:layout_margin="20px"
+        android:padding="5px"
+        android:textSize="15dp"
+        android:gravity="center" />
+</LinearLayout>

@@ -1927,6 +1927,15 @@ namespace ShapeCalculator
 			// aapt resource value: 0x7f0b0070
 			public const int btnMainMenuStart = 2131427440;
 			
+			// aapt resource value: 0x7f0b0087
+			public const int btnStartCalc = 2131427463;
+			
+			// aapt resource value: 0x7f0b0089
+			public const int btnStartEdit = 2131427465;
+			
+			// aapt resource value: 0x7f0b0088
+			public const int btnStartView = 2131427464;
+			
 			// aapt resource value: 0x7f0b003e
 			public const int buttonPanel = 2131427390;
 			
@@ -2029,8 +2038,8 @@ namespace ShapeCalculator
 			// aapt resource value: 0x7f0b0079
 			public const int media_actions = 2131427449;
 			
-			// aapt resource value: 0x7f0b0086
-			public const int message = 2131427462;
+			// aapt resource value: 0x7f0b008a
+			public const int message = 2131427466;
 			
 			// aapt resource value: 0x7f0b0023
 			public const int middle = 2131427363;
@@ -2145,6 +2154,9 @@ namespace ShapeCalculator
 			
 			// aapt resource value: 0x7f0b001e
 			public const int src_over = 2131427358;
+			
+			// aapt resource value: 0x7f0b0086
+			public const int startLayout = 2131427462;
 			
 			// aapt resource value: 0x7f0b0078
 			public const int status_bar_latest_event_content = 2131427448;
@@ -2395,10 +2407,13 @@ namespace ShapeCalculator
 			public const int select_dialog_singlechoice_material = 2130968623;
 			
 			// aapt resource value: 0x7f040030
-			public const int support_simple_spinner_dropdown_item = 2130968624;
+			public const int Start_Layout = 2130968624;
 			
 			// aapt resource value: 0x7f040031
-			public const int tooltip = 2130968625;
+			public const int support_simple_spinner_dropdown_item = 2130968625;
+			
+			// aapt resource value: 0x7f040032
+			public const int tooltip = 2130968626;
 			
 			static Layout()
 			{

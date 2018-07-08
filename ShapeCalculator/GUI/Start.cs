@@ -1,6 +1,7 @@
 ﻿
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Text;
 
@@ -16,6 +17,10 @@ namespace ShapeCalculator
 {
     public class Start : Fragment
     {
+        private Button btnCalc;
+        private Button btnView;
+        private Button btnEdit;
+
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -25,10 +30,43 @@ namespace ShapeCalculator
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
+            Contract.Ensures(Contract.Result<View>() != null);
             // Use this to return your custom view for this Fragment
-            // return inflater.Inflate(Resource.Layout.YourFragment, container, false);
+            View view = inflater.Inflate(Resource.Layout.Start_Layout, container, false);
 
-            return base.OnCreateView(inflater, container, savedInstanceState);
+            initBtnCalc(view);
+            initBtnView(view);
+            initBtnEdit(view);
+
+            return view;
+            //return base.OnCreateView(inflater, container, savedInstanceState);
+        }
+
+        private void initBtnCalc(View view)
+        {
+            btnCalc = view.FindViewById<Button>(Resource.Id.btnStartCalc);
+            btnCalc.Click += delegate {
+            
+
+            };
+        }
+
+        private void initBtnView(View view)
+        {
+            btnView = view.FindViewById<Button>(Resource.Id.btnStartView);
+            btnView.Click += delegate {
+            
+
+            };
+        }
+
+        private void initBtnEdit(View view)
+        {
+            btnEdit = view.FindViewById<Button>(Resource.Id.btnStartEdit);
+            btnEdit.Click += delegate {
+            
+
+            };
         }
     }
 }
