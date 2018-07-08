@@ -1797,6 +1797,15 @@ namespace ShapeCalculator
 		public partial class Id
 		{
 			
+			// aapt resource value: 0x7F010002
+			public const int aboutLayout = 2130771970;
+			
+			// aapt resource value: 0x7F010004
+			public const int aboutListView = 2130771972;
+			
+			// aapt resource value: 0x7F010003
+			public const int aboutTextview = 2130771971;
+			
 			// aapt resource value: 0x7F0C0001
 			public const int action0 = 2131492865;
 			
@@ -1869,6 +1878,12 @@ namespace ShapeCalculator
 			// aapt resource value: 0x7F0C0007
 			public const int blocking = 2131492871;
 			
+			// aapt resource value: 0x7F010005
+			public const int btnAboutBack = 2130771973;
+			
+			// aapt resource value: 0x7F010006
+			public const int btnAboutMenu = 2130771974;
+			
 			// aapt resource value: 0x7F0C0018
 			public const int buttonPanel = 2131492888;
 			
@@ -1938,14 +1953,17 @@ namespace ShapeCalculator
 			// aapt resource value: 0x7F0C002C
 			public const int listMode = 2131492908;
 			
+			// aapt resource value: 0x7F010007
+			public const int listViewNode = 2130771975;
+			
 			// aapt resource value: 0x7F0C002D
 			public const int list_item = 2131492909;
 			
-			// aapt resource value: 0x7F010002
-			public const int mainLayout = 2130771970;
+			// aapt resource value: 0x7F010009
+			public const int mainLayout = 2130771977;
 			
-			// aapt resource value: 0x7F010003
-			public const int mainMenuLayout = 2130771971;
+			// aapt resource value: 0x7F010010
+			public const int mainMenuLayout = 2130771984;
 			
 			// aapt resource value: 0x7F0C0013
 			public const int media_actions = 2131492883;
@@ -2094,6 +2112,9 @@ namespace ShapeCalculator
 			// aapt resource value: 0x7F0C005C
 			public const int topPanel = 2131492956;
 			
+			// aapt resource value: 0x7F010008
+			public const int txtNode = 2130771976;
+			
 			// aapt resource value: 0x7F0C005D
 			public const int uniform = 2131492957;
 			
@@ -2223,10 +2244,16 @@ namespace ShapeCalculator
 			public const int abc_select_dialog_material = 2131689498;
 			
 			// aapt resource value: 0x7F020002
-			public const int Main = 2130837506;
+			public const int About_Layout = 2130837506;
 			
 			// aapt resource value: 0x7F020003
-			public const int MainMenu_Layout = 2130837507;
+			public const int ListViewNode_Layout = 2130837507;
+			
+			// aapt resource value: 0x7F020004
+			public const int Main = 2130837508;
+			
+			// aapt resource value: 0x7F020005
+			public const int MainMenu_Layout = 2130837509;
 			
 			// aapt resource value: 0x7F0F0001
 			public const int notification_action = 2131689473;

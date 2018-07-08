@@ -1,6 +1,7 @@
 ﻿
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Text;
 
@@ -25,10 +26,25 @@ namespace ShapeCalculator
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
+            Contract.Ensures(Contract.Result<View>() != null);
             // Use this to return your custom view for this Fragment
-            // return inflater.Inflate(Resource.Layout.YourFragment, container, false);
-
-            return base.OnCreateView(inflater, container, savedInstanceState);
+            View view = inflater.Inflate(Resource.Layout.About_Layout, container, false);
+            ListView listView = view.FindViewById<ListView>(Resource.Id.aboutListView);
+            listView.Adapter = new ListViewAdapter(IO.AboutReader.getInstance().getNames(Activity.Assets));
+            Button btnBack = view.FindViewById<Button>(Resource.Id.btnAboutBack);
+            btnBack.Click += delegate {
+                FragmentTransaction fragmentTransaction = this.FragmentManager.BeginTransaction();
+                fragmentTransaction.Replace(Resource.Id.mainLayout, new MainMenu());
+                fragmentTransaction.Commit();
+            };
+            Button btnMenu = view.FindViewById<Button>(Resource.Id.btnAboutMenu);
+            btnMenu.Click += delegate {
+                FragmentTransaction fragmentTransaction = this.FragmentManager.BeginTransaction();
+                fragmentTransaction.Replace(Resource.Id.mainLayout, new MainMenu());
+                fragmentTransaction.Commit();
+            };
+            return view;
+            //return base.OnCreateView(inflater, container, savedInstanceState);
         }
     }
 }

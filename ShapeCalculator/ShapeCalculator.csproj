@@ -117,6 +117,8 @@
     <Compile Include="GUI\MainMenu.cs" />
     <Compile Include="GUI\About.cs" />
     <Compile Include="GUI\Start.cs" />
+    <Compile Include="GUI\ListViewAdapter.cs" />
+    <Compile Include="IO\AboutReader.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -133,6 +135,8 @@
     <AndroidResource Include="Resources\mipmap-xxhdpi\Icon.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\Icon.png" />
     <AndroidResource Include="Resources\layout\MainMenu_Layout.axml" />
+    <AndroidResource Include="Resources\layout\About_Layout.axml" />
+    <AndroidResource Include="Resources\layout\ListViewNode_Layout.axml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />
@@ -146,6 +150,7 @@
     <AndroidAsset Include="Assets\Shape.txt" />
     <AndroidAsset Include="Assets\TriangleFuncs.txt" />
     <AndroidAsset Include="Assets\TriangleVars.txt" />
+    <AndroidAsset Include="Assets\About.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Android.Support.Annotations.27.0.2\build\MonoAndroid81\Xamarin.Android.Support.Annotations.targets" Condition="Exists('..\packages\Xamarin.Android.Support.Annotations.27.0.2\build\MonoAndroid81\Xamarin.Android.Support.Annotations.targets')" />
