@@ -1,10 +1,5 @@
 ﻿<Properties StartupConfiguration="{1FC55136-F4DF-4FDD-97D9-D330340B29FF}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="ShapeCalculator/GUI/StartResult.cs">
-    <Files>
-      <File FileName="ShapeCalculator/GUI/StartCalc.cs" Line="81" Column="45" />
-      <File FileName="ShapeCalculator/GUI/StartResult.cs" Line="44" Column="20" />
-    </Files>
-  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />

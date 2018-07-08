@@ -113,8 +113,8 @@ namespace Calc
                         if (i.canActivate(variables))
                         {
                             //res.Add(i.toString());
-                            res.Add(i.active(ref variables));
-                            //res.AddRange(i.active(ref variables));
+                            //res.Add(i.active(ref variables));
+                            res.AddRange(i.active(ref variables));
                             this.setNodeActivate(i.getTarget(), true);
                             canStop = false;
                         }

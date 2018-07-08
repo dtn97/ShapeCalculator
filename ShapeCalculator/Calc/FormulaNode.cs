@@ -100,7 +100,7 @@ namespace Calc
             return cnt == variable.Count;
         }
 
-        public string active(ref Global global)
+        public List<string> active(ref Global global)
         {
             string[] tmp = exp.Split(new string[] { " " }, StringSplitOptions.RemoveEmptyEntries);
             string str = " ";
@@ -120,7 +120,10 @@ namespace Calc
 
             //return (target +" =  " + global.getValue(target).ToString());
 
-            return target + " = " + expression.toString(InfixNotation.getInstance()) + " =  " + global.getValue(target).ToString();
+            List<string> res = new List<string>();
+            res.Add(this.name);
+            res.Add(target + " = " + expression.toString(InfixNotation.getInstance()) + " =  " + global.getValue(target).ToString());
+            return res;
         }
 
         public string toString()
