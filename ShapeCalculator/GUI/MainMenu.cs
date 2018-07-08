@@ -16,7 +16,6 @@ namespace ShapeCalculator
 {
     public class MainMenu : Fragment
     {
-        LinearLayout linearLayout;
         Button btnStart;
         Button btnAbout;
         Button btnExit;
@@ -33,37 +32,25 @@ namespace ShapeCalculator
             // Use this to return your custom view for this Fragment
             View view = inflater.Inflate(Resource.Layout.MainMenu_Layout, container, false);
 
-            linearLayout = view.FindViewById<LinearLayout>(Resource.Id.mainMenuLayout);
-
-            initBtnStart();
-            initBtnAbout();
-            initBtnExit();
-            addButton();
+            initBtnStart(view);
+            initBtnAbout(view);
+            initBtnExit(view);
 
             return view;
             //return base.OnCreateView(inflater, container, savedInstanceState);
         }
 
-        private void addButton()
+        private void initBtnExit(View view)
         {
-            linearLayout.AddView(btnStart);
-            linearLayout.AddView(btnAbout);
-            linearLayout.AddView(btnExit);
-        }
-
-        private void initBtnExit()
-        {
-            btnExit = new Button(Activity);
-            btnExit.Text = "Exit";
+            btnExit = view.FindViewById<Button>(Resource.Id.btnMainMenuExit);
             btnExit.Click += delegate {
                 (Activity).Finish();
             };
         }
 
-        private void initBtnAbout()
+        private void initBtnAbout(View view)
         {
-            btnAbout = new Button(Activity);
-            btnAbout.Text = "About";
+            btnAbout = view.FindViewById<Button>(Resource.Id.btnMainMenuAbout);
             btnAbout.Click += delegate {
                 FragmentTransaction fragmentTransaction = this.FragmentManager.BeginTransaction();
                 fragmentTransaction.Replace(Resource.Id.mainLayout, new About());
@@ -71,9 +58,8 @@ namespace ShapeCalculator
             };
         }
 
-        private void initBtnStart(){
-            btnStart = new Button(Activity);
-            btnStart.Text = "Start";
+        private void initBtnStart(View view){
+            btnStart = view.FindViewById<Button>(Resource.Id.btnMainMenuStart);
             btnStart.Click += delegate {
                 FragmentTransaction fragmentTransaction = this.FragmentManager.BeginTransaction();
                 fragmentTransaction.Replace(Resource.Id.mainLayout, new Start());

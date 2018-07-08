@@ -137,6 +137,7 @@
     <AndroidResource Include="Resources\layout\MainMenu_Layout.axml" />
     <AndroidResource Include="Resources\layout\About_Layout.axml" />
     <AndroidResource Include="Resources\layout\ListViewNode_Layout.axml" />
+    <AndroidResource Include="Resources\drawable\calcicon.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />
