@@ -37,6 +37,9 @@ namespace ShapeCalculator
             shapeName = Arguments.GetString("shape");
             database = new IO.MyDatabase(Activity.Assets);
             vars = IO.VarReader.getInstance().getVars(database, this.shapeName);
+            if (vars == null){
+                vars = new List<string>();
+            }
 
             // Use this to return your custom view for this Fragment
             View view = inflater.Inflate(Resource.Layout.AddVariable_Layout, container, false);
@@ -59,11 +62,24 @@ namespace ShapeCalculator
                     return;
                 }
                 vars.Add(editText.Text);
-                Calc.Data data = database.GetItemAsync(shapeName + "Variable").Result;
-                data.value += ("\n" + editText.Text);
-                database.SaveItemAsync(data);
-                editText.Text = "";
+
                 listView.Adapter = new ListViewAdapter(vars);
+                Calc.Data data = database.GetItemAsync(shapeName + "Variable").Result;
+                //Log.Info("data", data.id.ToString() + "\n" + data.name + "\n" + data.value);
+                if (data == null)
+                {
+                    data = new Calc.Data();
+                    data.name = shapeName + "Variable";
+                    data.value = editText.Text;
+                    data.id = 0;
+                }
+                else
+                {
+                    data.value += ("\n" + editText.Text);
+                }
+                database.SaveItemAsync(data).Wait();
+                editText.Text = "";
+
             };
         }
 

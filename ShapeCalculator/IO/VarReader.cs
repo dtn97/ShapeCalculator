@@ -46,6 +46,9 @@ namespace IO
 
         public List<string> getVars(MyDatabase database, string type){
             Calc.Data data = database.GetItemAsync(type + "Variable").Result;
+            if (data == null){
+                return null;
+            }
             return this.getVars(data.value);
         }
 

@@ -16,9 +16,13 @@ namespace ShapeCalculator
 {
     public class StartEdit : Fragment
     {
-        private Button btnShape;
-        private Button btnVar;
-        private Button btnFunc;
+        private Button btnAdd;
+        private Button btnDelete;
+        private ListView listView;
+        private EditText editText;
+
+        private List<string> shapes;
+        IO.MyDatabase database;
 
         public override void OnCreate(Bundle savedInstanceState)
         {
@@ -29,31 +33,90 @@ namespace ShapeCalculator
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
+            database = new IO.MyDatabase(Activity.Assets);
+            shapes = IO.ShapeReader.getInstance().getShapes(database);
+
             // Use this to return your custom view for this Fragment
             View view = inflater.Inflate(Resource.Layout.StartEdit_Layout, container, false);
 
-            btnShape = view.FindViewById<Button>(Resource.Id.btnStartEditShape);
-            btnShape.Click += delegate {
-                FragmentTransaction fragmentTransaction = this.FragmentManager.BeginTransaction();
-                fragmentTransaction.Replace(Resource.Id.mainLayout, new EditShape());
-                fragmentTransaction.Commit();
+            initBtnBack(view);
+            initBtnAdd(view);
+            initBtnDelete(view);
 
-            };
+            listView = view.FindViewById<ListView>(Resource.Id.startEditListView);
+            listView.Adapter = new ListViewAdapter(shapes);
 
-            btnVar = view.FindViewById<Button>(Resource.Id.btnStartEditVariable);
-            btnVar.Click += delegate {
-            
-
-            };
-
-            btnFunc = view.FindViewById<Button>(Resource.Id.btnStartEditFormula);
-            btnFunc.Click += delegate {
-            
-
-            };
+            editText = view.FindViewById<EditText>(Resource.Id.edtstartEdit);
 
             return view;
             //return base.OnCreateView(inflater, container, savedInstanceState);
+        }
+
+        private void initBtnDelete(View view)
+        {
+            btnDelete = view.FindViewById<Button>(Resource.Id.btnStartEditDelete);
+            btnDelete.Click += delegate {
+                string shape = editText.Text.ToString();
+                if (shape.Equals("") || !shapes.Contains(shape))
+                {
+                    editText.Text = "";
+                    return;
+                }
+                shapes.Remove(shape);
+                listView.Adapter = new ListViewAdapter(shapes);
+                editText.Text = "";
+                string tmp = "";
+                foreach(string i in shapes){
+                    tmp += (i + "\n");
+                }
+                if (tmp.Length > 0 && tmp[tmp.Length - 1] == '\n'){
+                    tmp = tmp.Remove(tmp.Length - 1);
+                }
+                Calc.Data data = database.GetItemAsync("Shape").Result;
+                data.value = tmp;
+                database.SaveItemAsync(data);
+
+                data = database.GetItemAsync(shape + "Variable").Result;
+                database.DeleteItemAsync(data);
+
+                data = database.GetItemAsync(shape + "Function").Result;
+                database.DeleteItemAsync(data);
+            };
+        }
+
+        private void initBtnAdd(View view)
+        {
+            btnAdd = view.FindViewById<Button>(Resource.Id.btnStartEditAdd);
+            btnAdd.Click += delegate {
+                string shape = editText.Text.ToString();
+                if (shape.Equals("")){
+                    return;
+                }
+                shapes.Add(shape);
+                listView.Adapter = new ListViewAdapter(shapes);
+                Calc.Data data = database.GetItemAsync("Shape").Result;
+                data.value += ("\n" + shape);
+                database.SaveItemAsync(data);
+                editText.Text = "";
+            };
+        }
+
+        private void initBtnBack(View view)
+        {
+            Button btnMenu = view.FindViewById<Button>(Resource.Id.btnStartEditMenu);
+            btnMenu.Click += delegate {
+
+                FragmentTransaction fragmentTransaction = this.FragmentManager.BeginTransaction();
+                fragmentTransaction.Replace(Resource.Id.mainLayout, new MainMenu());
+                fragmentTransaction.Commit();
+            };
+
+            Button btnBack = view.FindViewById<Button>(Resource.Id.btnStartEditBack);
+            btnBack.Click += delegate {
+                FragmentTransaction fragmentTransaction = this.FragmentManager.BeginTransaction();
+                fragmentTransaction.Replace(Resource.Id.mainLayout, new Start());
+                fragmentTransaction.Commit();
+            };
         }
     }
 }

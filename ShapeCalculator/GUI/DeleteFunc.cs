@@ -86,6 +86,9 @@ namespace ShapeCalculator
             List<List<string>> tmp = IO.FuncReader.getInstance().getFunc(database, shapeName);
             funcs = new Dictionary<string, List<string>>();
             values = new List<string>();
+            if (tmp == null){
+                return;
+            }
             foreach(List<string> i in tmp){
                 funcs.Add(i[1], i);
                 values.Add(i[1]);

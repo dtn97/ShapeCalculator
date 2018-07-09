@@ -51,6 +51,10 @@ namespace IO
 
             Calc.Data data = database.GetItemAsync(type + "Function").Result;
 
+            if (data == null){
+                return null;
+            }
+
             string[] lines = data.value.Split(new string[] { "\n" }, StringSplitOptions.RemoveEmptyEntries);
             int len = lines.Length;
             for (int i = 0; i < len; i += 4)
@@ -102,6 +106,9 @@ namespace IO
         public List<string> getFunctions(MyDatabase database, string type)
         {
             List<List<string>> tmp = this.getFunc(database, type);
+            if (tmp == null){
+                return null;
+            }
             List<String> res = new List<string>();
             foreach (List<string> i in tmp)
             {

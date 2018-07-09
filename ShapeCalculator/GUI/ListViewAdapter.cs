@@ -15,7 +15,7 @@ namespace ShapeCalculator
 
         public override string this[int position] => value[position];
 
-        public override int Count => value.Count;
+        public override int Count => value == null ? 0 : value.Count;
 
         public override long GetItemId(int position)
         {

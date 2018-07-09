@@ -1926,8 +1926,8 @@ namespace ShapeCalculator
 			// aapt resource value: 0x7F020031
 			public const int btnMainMenuStart = 2130837553;
 			
-			// aapt resource value: 0x7F020058
-			public const int btnStartCalc = 2130837592;
+			// aapt resource value: 0x7F020062
+			public const int btnStartCalc = 2130837602;
 			
 			// aapt resource value: 0x7F020040
 			public const int btnStartCalcCalc = 2130837568;
@@ -1935,38 +1935,41 @@ namespace ShapeCalculator
 			// aapt resource value: 0x7F020038
 			public const int btnStartCalcEnter = 2130837560;
 			
-			// aapt resource value: 0x7F020060
-			public const int btnStartEdit = 2130837600;
+			// aapt resource value: 0x7F020064
+			public const int btnStartEdit = 2130837604;
 			
 			// aapt resource value: 0x7F020044
-			public const int btnStartEditFormula = 2130837572;
+			public const int btnStartEditAdd = 2130837572;
 			
-			// aapt resource value: 0x7F020042
-			public const int btnStartEditShape = 2130837570;
+			// aapt resource value: 0x7F020047
+			public const int btnStartEditBack = 2130837575;
 			
-			// aapt resource value: 0x7F020043
-			public const int btnStartEditVariable = 2130837571;
+			// aapt resource value: 0x7F020045
+			public const int btnStartEditDelete = 2130837573;
 			
 			// aapt resource value: 0x7F020048
-			public const int btnStartResultBack = 2130837576;
-			
-			// aapt resource value: 0x7F020049
-			public const int btnStartResultMenu = 2130837577;
-			
-			// aapt resource value: 0x7F020059
-			public const int btnStartView = 2130837593;
+			public const int btnStartEditMenu = 2130837576;
 			
 			// aapt resource value: 0x7F020052
-			public const int btnStartViewAdd = 2130837586;
-			
-			// aapt resource value: 0x7F020055
-			public const int btnStartViewBack = 2130837589;
+			public const int btnStartResultBack = 2130837586;
 			
 			// aapt resource value: 0x7F020053
-			public const int btnStartViewDelete = 2130837587;
+			public const int btnStartResultMenu = 2130837587;
+			
+			// aapt resource value: 0x7F020063
+			public const int btnStartView = 2130837603;
 			
 			// aapt resource value: 0x7F020056
-			public const int btnStartViewMenu = 2130837590;
+			public const int btnStartViewAdd = 2130837590;
+			
+			// aapt resource value: 0x7F020059
+			public const int btnStartViewBack = 2130837593;
+			
+			// aapt resource value: 0x7F020057
+			public const int btnStartViewDelete = 2130837591;
+			
+			// aapt resource value: 0x7F020060
+			public const int btnStartViewMenu = 2130837600;
 			
 			// aapt resource value: 0x7F0C0018
 			public const int buttonPanel = 2131492888;
@@ -2009,6 +2012,9 @@ namespace ShapeCalculator
 			
 			// aapt resource value: 0x7F020009
 			public const int edtFormula = 2130837513;
+			
+			// aapt resource value: 0x7F020042
+			public const int edtstartEdit = 2130837570;
 			
 			// aapt resource value: 0x7F020007
 			public const int edtTarget = 2130837511;
@@ -2070,8 +2076,8 @@ namespace ShapeCalculator
 			// aapt resource value: 0x7F020039
 			public const int lvStartCalcResult = 2130837561;
 			
-			// aapt resource value: 0x7F020054
-			public const int lvStartViewResult = 2130837588;
+			// aapt resource value: 0x7F020058
+			public const int lvStartViewResult = 2130837592;
 			
 			// aapt resource value: 0x7F020028
 			public const int mainLayout = 2130837544;
@@ -2187,11 +2193,11 @@ namespace ShapeCalculator
 			// aapt resource value: 0x7F020036
 			public const int spnStartCalcVar = 2130837558;
 			
-			// aapt resource value: 0x7F020050
-			public const int spnStartViewShape = 2130837584;
+			// aapt resource value: 0x7F020054
+			public const int spnStartViewShape = 2130837588;
 			
-			// aapt resource value: 0x7F020051
-			public const int spnStartViewType = 2130837585;
+			// aapt resource value: 0x7F020055
+			public const int spnStartViewType = 2130837589;
 			
 			// aapt resource value: 0x7F0C004D
 			public const int src_atop = 2131492941;
@@ -2205,20 +2211,26 @@ namespace ShapeCalculator
 			// aapt resource value: 0x7F020035
 			public const int StartCalcLayoutControl = 2130837557;
 			
+			// aapt resource value: 0x7F020043
+			public const int startEditControl = 2130837571;
+			
 			// aapt resource value: 0x7F020041
 			public const int startEditLayout = 2130837569;
 			
-			// aapt resource value: 0x7F020057
-			public const int startLayout = 2130837591;
-			
-			// aapt resource value: 0x7F020045
-			public const int startResultLayout = 2130837573;
-			
-			// aapt resource value: 0x7F020047
-			public const int startResultListView = 2130837575;
-			
 			// aapt resource value: 0x7F020046
-			public const int startRresultTextview = 2130837574;
+			public const int startEditListView = 2130837574;
+			
+			// aapt resource value: 0x7F020061
+			public const int startLayout = 2130837601;
+			
+			// aapt resource value: 0x7F020049
+			public const int startResultLayout = 2130837577;
+			
+			// aapt resource value: 0x7F020051
+			public const int startResultListView = 2130837585;
+			
+			// aapt resource value: 0x7F020050
+			public const int startRresultTextview = 2130837584;
 			
 			// aapt resource value: 0x7F0C001A
 			public const int status_bar_latest_event_content = 2131492890;

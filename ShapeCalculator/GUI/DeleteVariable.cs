@@ -87,6 +87,9 @@ namespace ShapeCalculator
         private void setVars()
         {
             this.values = IO.VarReader.getInstance().getVars(database, shapeName);
+            if (this.values == null){
+                this.values = new List<string>();
+            }
         }
 
         protected virtual void initBtnBack(View view)

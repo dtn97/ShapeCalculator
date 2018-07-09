@@ -70,7 +70,14 @@ namespace ShapeCalculator
                 string res = formulaNode.toStringFunc();
                 res = res.Remove(res.Length - 1);
                 Calc.Data data = database.GetItemAsync(shapeName + "Function").Result;
-                data.value += ("\n" + res);
+
+                if (data == null){
+                    data = new Calc.Data();
+                    data.name = shapeName + "Function";
+                    data.value = res;
+                }
+                else
+                    data.value += ("\n" + res);
                 database.SaveItemAsync(data);
                 callBack();
             };

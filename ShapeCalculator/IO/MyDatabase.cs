@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Threading.Tasks;
 using Android.Content.Res;
 using Android.Util;
@@ -48,7 +49,7 @@ namespace IO
 
         public Task<int> SaveItemAsync(Calc.Data item)
         {
-            if (item.id != 0)
+            if (item.id > 0)
             {
                 return database.UpdateAsync(item);
             }

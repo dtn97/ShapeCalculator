@@ -128,17 +128,6 @@ namespace ShapeCalculator
 
         private void initSpinners(View view)
         {
-            /*
-            if (Arguments.ContainsKey("shape")){
-                string name = Arguments.GetString("shape");
-                int index = shapes.IndexOf(name);
-                shapes[index] = shapes[0];
-                shapes[0] = name;
-                types[0] = "Function";
-                types[1] = "Variable";
-            }
-            */
-
             spinner1 = view.FindViewById<Spinner>(Resource.Id.spnStartViewShape);
             spinner1.Adapter = new ArrayAdapter<string>(Activity, Android.Resource.Layout.SimpleSpinnerItem, shapes.ToArray());
             spinner1.ItemSelected += new EventHandler<AdapterView.ItemSelectedEventArgs>(spinner1_ItemSelected);
@@ -166,6 +155,10 @@ namespace ShapeCalculator
             if (this.typeSelected.Equals("Variable"))
             {
                 Calc.Data data = database.GetItemAsync(this.shapeSelected + this.typeSelected).Result;
+                if (data == null){
+                    lvResult.Adapter = null;
+                    return;
+                }
                 List<string> listVars = new List<string>(data.value.Split(new String[]{"\n"}, StringSplitOptions.RemoveEmptyEntries));
                 lvResult.Adapter = new ListViewAdapter(listVars);
             }
