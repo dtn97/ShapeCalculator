@@ -37,9 +37,29 @@ namespace ShapeCalculator
             initBtnCalc(view);
             initBtnView(view);
             initBtnEdit(view);
+            initBtnReset(view);
 
             return view;
             //return base.OnCreateView(inflater, container, savedInstanceState);
+        }
+
+        private void initBtnReset(View view)
+        {
+            Button button = view.FindViewById<Button>(Resource.Id.btnStartReset);
+            button.Click += delegate {
+                AlertDialog.Builder alert = new AlertDialog.Builder(Activity);
+                alert.SetTitle("Reset");
+                alert.SetMessage("Reset Successed");
+                alert.SetNegativeButton("Yes", (senderAlert, args) => {
+                    IO.MyDatabase database = new IO.MyDatabase(Activity.Assets);
+                    database.reset(Activity.Assets);
+                });
+                alert.SetPositiveButton("No", (senderAlert, args) => {
+                    
+                });
+                Dialog dialog = alert.Create();
+                dialog.Show();
+            };
         }
 
         private void initBtnCalc(View view)

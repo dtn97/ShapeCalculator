@@ -43,4 +43,14 @@
         android:padding="5px"
         android:textSize="15dp"
         android:gravity="center" />
+    <Button
+        android:layout_width="300px"
+        android:layout_height="70px"
+        android:text="Reset"
+        android:id="@+id/btnStartReset"
+        android:background="#00ac00"
+        android:layout_margin="20px"
+        android:padding="5px"
+        android:textSize="15dp"
+        android:gravity="center" />
 </LinearLayout>

@@ -59,6 +59,18 @@ namespace IO
             }
         }
 
+        internal void reset(AssetManager assets)
+        {
+            database.DropTableAsync<Calc.Data>().Wait();
+            database.CreateTableAsync<Calc.Data>().Wait();
+            database.InsertAsync(this.getShapes(assets));
+            List<Calc.Data> tmp = this.getInfo(assets);
+            foreach (Calc.Data i in tmp)
+            {
+                database.InsertAsync(i);
+            }
+        }
+
         public Task<int> DeleteItemAsync(Calc.Data item)
         {
             return database.DeleteAsync(item);
