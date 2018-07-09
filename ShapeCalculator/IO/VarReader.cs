@@ -33,6 +33,22 @@ namespace IO
             return res;
         }
 
+        public List<string> getVars(string str)
+        {
+            List<string> res = new List<string>();
+            string[] lines = str.Split(new string[] { "\n" }, StringSplitOptions.RemoveEmptyEntries);
+            foreach (string i in lines)
+            {
+                res.Add(i);
+            }
+            return res;
+        }
+
+        public List<string> getVars(MyDatabase database, string type){
+            Calc.Data data = database.GetItemAsync(type + "Variable").Result;
+            return this.getVars(data.value);
+        }
+
         public List<string> getVariables(AssetManager assets, string type)
         {
             string str;
@@ -42,6 +58,16 @@ namespace IO
             }
             string[] lines = str.Split(new string[] { "\n" }, StringSplitOptions.RemoveEmptyEntries);
             return new List<string>(lines);
+        }
+
+        public string readVariables(AssetManager assets, string type)
+        {
+            string str;
+            using (StreamReader sr = new StreamReader(assets.Open(type + "Vars.txt")))
+            {
+                str = sr.ReadToEnd();
+            }
+            return str;
         }
     }
 }

@@ -31,6 +31,8 @@ namespace ShapeCalculator
         Dictionary<string, double> inputVars;
         List<string> varEntered;
 
+        IO.MyDatabase database;
+
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -40,7 +42,8 @@ namespace ShapeCalculator
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
-            shapes = IO.ShapeReader.getInstance().getShapes(Activity.Assets, "Shape.txt");
+            database = new IO.MyDatabase(Activity.Assets);
+            shapes = IO.ShapeReader.getInstance().getShapes(database);
             //vars = IO.VarReader.getInstance().getVariables(Activity.Assets, shapes[0]);
 
             // Use this to return your custom view for this Fragment
@@ -119,7 +122,7 @@ namespace ShapeCalculator
         private void spinner1_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
         {
             this.shapeSelected = this.shapes[e.Position];
-            this.vars = IO.VarReader.getInstance().getVariables(Activity.Assets, this.shapeSelected);
+            this.vars = IO.VarReader.getInstance().getVars(database, this.shapeSelected);
             spinner2.Adapter = new ArrayAdapter<string>(Activity, Android.Resource.Layout.SimpleSpinnerItem, vars.ToArray());
             lvResult.Adapter = null;
             inputVars = new Dictionary<string, double>();

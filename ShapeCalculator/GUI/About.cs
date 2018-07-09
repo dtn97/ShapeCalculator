@@ -30,7 +30,7 @@ namespace ShapeCalculator
             // Use this to return your custom view for this Fragment
             View view = inflater.Inflate(Resource.Layout.About_Layout, container, false);
             ListView listView = view.FindViewById<ListView>(Resource.Id.aboutListView);
-            listView.Adapter = new ListViewAdapter(IO.AboutReader.getInstance().getNames(Activity.Assets));
+            //listView.Adapter = new ListViewAdapter(IO.AboutReader.getInstance().getNames(Activity.Assets));
             Button btnBack = view.FindViewById<Button>(Resource.Id.btnAboutBack);
             btnBack.Click += delegate {
                 FragmentTransaction fragmentTransaction = this.FragmentManager.BeginTransaction();

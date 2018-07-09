@@ -1,8 +1,13 @@
 ﻿<Properties StartupConfiguration="{1FC55136-F4DF-4FDD-97D9-D330340B29FF}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="ShapeCalculator/GUI/StartView.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="ShapeCalculator/IO/FuncReader.cs">
     <Files>
-      <File FileName="ShapeCalculator/GUI/Start.cs" Line="72" Column="46" />
-      <File FileName="ShapeCalculator/GUI/StartView.cs" Line="68" Column="79" />
+      <File FileName="ShapeCalculator/IO/MyDatabase.cs" Line="89" Column="41" />
+      <File FileName="ShapeCalculator/GUI/StartView.cs" Line="146" Column="17" />
+      <File FileName="ShapeCalculator/GUI/StartCalc.cs" Line="124" Column="58" />
+      <File FileName="ShapeCalculator/IO/ShapeReader.cs" Line="45" Column="14" />
+      <File FileName="ShapeCalculator/GUI/StartResult.cs" Line="60" Column="48" />
+      <File FileName="ShapeCalculator/IO/FuncReader.cs" Line="54" Column="1" />
+      <File FileName="ShapeCalculator/IO/VarReader.cs" Line="47" Column="71" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

@@ -33,5 +33,27 @@ namespace IO
             }
             return res;
         }
+
+        public List<string> getShapes(IO.MyDatabase database)
+        {
+            Calc.Data data = database.GetItemAsync("Shape").Result;
+            List<string> res = new List<string>();
+            string[] lines = data.value.Split(new String[] { "\n" }, StringSplitOptions.RemoveEmptyEntries);
+            foreach (string i in lines)
+            {
+                res.Add(i);
+            }
+            return res;
+        }
+
+        public string readShape(AssetManager assets, string fileName)
+        {
+            string str;
+            using (StreamReader sr = new StreamReader(assets.Open(fileName)))
+            {
+                str = sr.ReadToEnd();
+            }
+            return str;
+        }
     }
 }

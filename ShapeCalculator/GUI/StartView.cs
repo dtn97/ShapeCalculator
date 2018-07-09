@@ -19,7 +19,6 @@ namespace ShapeCalculator
         private string shapeSelected;
         private string typeSelected;
 
-        private List<string> vars;
         private List<string> shapes;
         private List<string> types;
 
@@ -31,6 +30,8 @@ namespace ShapeCalculator
         private Button btnAdd;
         private Button btnDelete;
 
+        IO.MyDatabase database;
+
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -40,11 +41,15 @@ namespace ShapeCalculator
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
+            database = new IO.MyDatabase(Activity.Assets);
+            Calc.Data data = database.GetItemAsync("Shape").Result;
+            shapes = new List<string>(data.value.Split(new string[] { "\n" }, StringSplitOptions.RemoveEmptyEntries));
+
             this.typeSelected = "Variable";
-            shapes = IO.ShapeReader.getInstance().getShapes(Activity.Assets, "Shape.txt");
+            //shapes = IO.ShapeReader.getInstance().getShapes(Activity.Assets, "Shape.txt");
             types = new List<string>();
             types.Add("Variable");
-            types.Add("Formula");
+            types.Add("Function");
 
             // Use this to return your custom view for this Fragment
             View view = inflater.Inflate(Resource.Layout.StartView_Layout, container, false);
@@ -80,10 +85,21 @@ namespace ShapeCalculator
 
         private void initBtnDelete(View view)
         {
-            btnDelete = view.FindViewById<Button>(Resource.Id.btnStartViewAdd);
+            btnDelete = view.FindViewById<Button>(Resource.Id.btnStartViewDelete);
             btnDelete.Click += delegate {
-
-
+                Fragment fragment;
+                if (this.typeSelected.Equals("Variable")){
+                    fragment = new DeleteVariable();
+                }
+                else{
+                    fragment = new DeleteFunc();
+                }
+                FragmentTransaction ft = this.FragmentManager.BeginTransaction();
+                ft.Replace(Resource.Id.mainLayout, fragment);
+                Bundle args = new Bundle();
+                args.PutString("shape", this.shapeSelected);
+                fragment.Arguments = args;
+                ft.Commit();
             };
         }
 
@@ -123,12 +139,13 @@ namespace ShapeCalculator
         {
             if (this.typeSelected.Equals("Variable"))
             {
-                List<string> listVars = IO.VarReader.getInstance().getVariables(Activity.Assets, this.shapeSelected);
+                Calc.Data data = database.GetItemAsync(this.shapeSelected + this.typeSelected).Result;
+                List<string> listVars = new List<string>(data.value.Split(new String[]{"\n"}, StringSplitOptions.RemoveEmptyEntries));
                 lvResult.Adapter = new ListViewAdapter(listVars);
             }
             else
             {
-                lvResult.Adapter = new ListViewAdapter(IO.FuncReader.getInstance().getFunctions(Activity.Assets, this.shapeSelected));
+                lvResult.Adapter = new ListViewAdapter(IO.FuncReader.getInstance().getFunctions(database, this.shapeSelected));
             }
         }
 

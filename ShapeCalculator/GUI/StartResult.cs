@@ -25,6 +25,8 @@ namespace ShapeCalculator
         List<List<string>> funcs;
         Dictionary<string, double> vars;
 
+        IO.MyDatabase database;
+
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -34,6 +36,7 @@ namespace ShapeCalculator
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
+            database = new IO.MyDatabase(Activity.Assets);
             // Use this to return your custom view for this Fragment
             View view = inflater.Inflate(Resource.Layout.StartResult_Layout, container, false);
 
@@ -55,14 +58,8 @@ namespace ShapeCalculator
         private void readInput()
         {
             type = Arguments.GetString("type");
-
-            funcs = IO.FuncReader.getInstance().getFunc(Activity.Assets, type);
-            vars = IO.VarReader.getInstance().getVars(Activity.Assets, type);
-            List<string> tmp = new List<string>();
-            foreach (KeyValuePair<string, double> i in vars)
-            {
-                tmp.Add(i.Key);
-            }
+            funcs = IO.FuncReader.getInstance().getFunc(database, type);
+            List<string> tmp = IO.VarReader.getInstance().getVars(database, type);
             vars = new Dictionary<string, double>();
             foreach (string i in tmp)
             {
