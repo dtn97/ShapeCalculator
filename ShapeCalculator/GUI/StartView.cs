@@ -107,7 +107,21 @@ namespace ShapeCalculator
         {
             btnAdd = view.FindViewById<Button>(Resource.Id.btnStartViewAdd);
             btnAdd.Click += delegate {
-            
+                Fragment fragment;
+                if (this.typeSelected.Equals("Variable"))
+                {
+                    fragment = new AddVariable();
+                }
+                else
+                {
+                    fragment = new AddFunction();
+                }
+                FragmentTransaction ft = this.FragmentManager.BeginTransaction();
+                ft.Replace(Resource.Id.mainLayout, fragment);
+                Bundle args = new Bundle();
+                args.PutString("shape", this.shapeSelected);
+                fragment.Arguments = args;
+                ft.Commit();
 
             };
         }

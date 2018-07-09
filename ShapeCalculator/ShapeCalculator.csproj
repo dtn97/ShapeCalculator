@@ -144,10 +144,11 @@
     <Compile Include="GUI\EditShape.cs" />
     <Compile Include="GUI\DeleteFunc.cs" />
     <Compile Include="GUI\DeleteVariable.cs" />
-    <Compile Include="IO\FuncWriter.cs" />
     <Compile Include="IO\MyDatabase.cs" />
     <Compile Include="Calc\Data.cs" />
     <Compile Include="Calc\Function.cs" />
+    <Compile Include="GUI\AddVariable.cs" />
+    <Compile Include="GUI\AddFunction.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -174,6 +175,7 @@
     <AndroidResource Include="Resources\layout\StartEdit_Layout.axml" />
     <AndroidResource Include="Resources\layout\EditShape_Layout.axml" />
     <AndroidResource Include="Resources\layout\DeleteInfo_Layout.axml" />
+    <AndroidResource Include="Resources\layout\AddVariable_Layout.axml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />

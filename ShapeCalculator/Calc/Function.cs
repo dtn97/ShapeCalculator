@@ -30,13 +30,18 @@ namespace Calc
         }
 
         public string toString(){
+            if (formulaNodes.Count == 0){
+                return "";
+            }
+
             string res = "";
 
             foreach (FormulaNode i in formulaNodes){
                 res += i.toStringFunc();
             }
 
-            res.Remove(res.Length - 1);
+            if (res[res.Length - 1] == '\n')
+                res.Remove(res.Length - 1);
 
             return res;
         }
