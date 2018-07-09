@@ -1,8 +1,14 @@
 ﻿<Properties StartupConfiguration="{1FC55136-F4DF-4FDD-97D9-D330340B29FF}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="ShapeCalculator/IO/MyDatabase.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="ShapeCalculator/GUI/StartCalc.cs">
     <Files>
-      <File FileName="ShapeCalculator/GUI/Start.cs" Line="55" Column="32" />
-      <File FileName="ShapeCalculator/IO/MyDatabase.cs" Line="71" Column="14" />
+      <File FileName="ShapeCalculator/IO/MyDatabase.cs" Line="26" Column="18" />
+      <File FileName="ShapeCalculator/GUI/DeleteFunc.cs" Line="81" Column="21" />
+      <File FileName="ShapeCalculator/GUI/DeleteVariable.cs" Line="82" Column="84" />
+      <File FileName="ShapeCalculator/GUI/Start.cs" Line="57" Column="21" />
+      <File FileName="ShapeCalculator/GUI/StartEdit.cs" Line="90" Column="54" />
+      <File FileName="ShapeCalculator/GUI/AddFunction.cs" Line="82" Column="52" />
+      <File FileName="ShapeCalculator/GUI/AddVariable.cs" Line="82" Column="52" />
+      <File FileName="ShapeCalculator/GUI/StartCalc.cs" Line="124" Column="58" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

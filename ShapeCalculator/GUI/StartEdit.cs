@@ -56,31 +56,46 @@ namespace ShapeCalculator
         {
             btnDelete = view.FindViewById<Button>(Resource.Id.btnStartEditDelete);
             btnDelete.Click += delegate {
-                string shape = editText.Text.ToString();
-                if (shape.Equals("") || !shapes.Contains(shape))
-                {
+                AlertDialog.Builder alert = new AlertDialog.Builder(Activity);
+                alert.SetTitle("Delete Shape");
+                alert.SetMessage("Do you want to delete shape?");
+                alert.SetNegativeButton("Yes", (senderAlert, args) => {
+                    string shape = editText.Text.ToString();
+                    if (shape.Equals("") || !shapes.Contains(shape))
+                    {
+                        editText.Text = "";
+                        return;
+                    }
+                    shapes.Remove(shape);
+                    listView.Adapter = new ListViewAdapter(shapes);
                     editText.Text = "";
-                    return;
-                }
-                shapes.Remove(shape);
-                listView.Adapter = new ListViewAdapter(shapes);
-                editText.Text = "";
-                string tmp = "";
-                foreach(string i in shapes){
-                    tmp += (i + "\n");
-                }
-                if (tmp.Length > 0 && tmp[tmp.Length - 1] == '\n'){
-                    tmp = tmp.Remove(tmp.Length - 1);
-                }
-                Calc.Data data = database.GetItemAsync("Shape").Result;
-                data.value = tmp;
-                database.SaveItemAsync(data);
+                    string tmp = "";
+                    foreach (string i in shapes)
+                    {
+                        tmp += (i + "\n");
+                    }
+                    if (tmp.Length > 0 && tmp[tmp.Length - 1] == '\n')
+                    {
+                        tmp = tmp.Remove(tmp.Length - 1);
+                    }
+                    Calc.Data data = database.GetItemAsync("Shape").Result;
+                    data.value = tmp;
+                    database.SaveItemAsync(data);
 
-                data = database.GetItemAsync(shape + "Variable").Result;
-                database.DeleteItemAsync(data);
+                    data = database.GetItemAsync(shape + "Variable").Result;
+                    database.DeleteItemAsync(data);
 
-                data = database.GetItemAsync(shape + "Function").Result;
-                database.DeleteItemAsync(data);
+                    data = database.GetItemAsync(shape + "Function").Result;
+                    database.DeleteItemAsync(data);
+                    Toast.MakeText(Activity, "Deleted!", ToastLength.Short).Show();
+                });
+                alert.SetPositiveButton("No", (senderAlert, args) => {
+
+                });
+                Dialog dialog = alert.Create();
+                dialog.Show();
+
+
             };
         }
 
@@ -98,6 +113,7 @@ namespace ShapeCalculator
                 data.value += ("\n" + shape);
                 database.SaveItemAsync(data);
                 editText.Text = "";
+                Toast.MakeText(Activity, "Successed!", ToastLength.Short).Show();
             };
         }
 

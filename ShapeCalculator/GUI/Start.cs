@@ -49,10 +49,12 @@ namespace ShapeCalculator
             button.Click += delegate {
                 AlertDialog.Builder alert = new AlertDialog.Builder(Activity);
                 alert.SetTitle("Reset");
-                alert.SetMessage("Reset Successed");
+                alert.SetMessage("Do you want to reset data?");
                 alert.SetNegativeButton("Yes", (senderAlert, args) => {
                     IO.MyDatabase database = new IO.MyDatabase(Activity.Assets);
                     database.reset(Activity.Assets);
+
+                    Toast.MakeText(Activity, "Successed!", ToastLength.Short).Show();
                 });
                 alert.SetPositiveButton("No", (senderAlert, args) => {
                     

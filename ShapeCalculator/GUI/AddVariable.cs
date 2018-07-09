@@ -79,7 +79,7 @@ namespace ShapeCalculator
                 }
                 database.SaveItemAsync(data).Wait();
                 editText.Text = "";
-
+                Toast.MakeText(Activity, "Successed!", ToastLength.Short).Show();
             };
         }
 

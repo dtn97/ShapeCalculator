@@ -59,20 +59,32 @@ namespace ShapeCalculator
         {
             btnDelete = view.FindViewById<Button>(Resource.Id.btnDeleteInfo);
             btnDelete.Click += delegate {
-
-                this.funcs.Remove(this.funcSelected);
-                this.values.Remove(this.funcSelected);
-                Calc.Data data = database.GetItemAsync(shapeName + "Function").Result;
-                data.value = "";
-                foreach(KeyValuePair<string, List<string>> i in funcs){
-                    foreach(string j in i.Value){
-                        data.value += (j + "\n");
+                AlertDialog.Builder alert = new AlertDialog.Builder(Activity);
+                alert.SetTitle("Delete formular");
+                alert.SetMessage("Do you want to delete this formular?");
+                alert.SetNegativeButton("Yes", (senderAlert, args) => {
+                    this.funcs.Remove(this.funcSelected);
+                    this.values.Remove(this.funcSelected);
+                    Calc.Data data = database.GetItemAsync(shapeName + "Function").Result;
+                    data.value = "";
+                    foreach (KeyValuePair<string, List<string>> i in funcs)
+                    {
+                        foreach (string j in i.Value)
+                        {
+                            data.value += (j + "\n");
+                        }
                     }
-                }
-                data.value = data.value.Remove(data.value.Length - 1);
-                database.SaveItemAsync(data);
-                spinner.Adapter = new ArrayAdapter<string>(Activity, Android.Resource.Layout.SimpleListItem1, values.ToArray());
-                listView.Adapter = new ListViewAdapter(values);
+                    data.value = data.value.Remove(data.value.Length - 1);
+                    database.SaveItemAsync(data);
+                    spinner.Adapter = new ArrayAdapter<string>(Activity, Android.Resource.Layout.SimpleListItem1, values.ToArray());
+                    listView.Adapter = new ListViewAdapter(values);
+                    Toast.MakeText(Activity, "Deleted!", ToastLength.Short).Show();
+                });
+                alert.SetPositiveButton("No", (senderAlert, args) => {
+
+                });
+                Dialog dialog = alert.Create();
+                dialog.Show();
             };
         }
 

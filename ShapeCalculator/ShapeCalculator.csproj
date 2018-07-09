@@ -141,7 +141,6 @@
     <Compile Include="GUI\StartCalc.cs" />
     <Compile Include="GUI\StartResult.cs" />
     <Compile Include="GUI\StartEdit.cs" />
-    <Compile Include="GUI\EditShape.cs" />
     <Compile Include="GUI\DeleteFunc.cs" />
     <Compile Include="GUI\DeleteVariable.cs" />
     <Compile Include="IO\MyDatabase.cs" />

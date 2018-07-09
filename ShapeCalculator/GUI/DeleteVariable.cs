@@ -58,24 +58,34 @@ namespace ShapeCalculator
         {
             btnDelete = view.FindViewById<Button>(Resource.Id.btnDeleteInfo);
             btnDelete.Click += delegate {
-                
-                this.values.Remove(this.varSelected);
-                Calc.Data data = database.GetItemAsync(shapeName + "Variable").Result;
-                data.value = "";
-                foreach (string i in values)
-                {
-                    data.value += (i + "\n");
-                }
-                data.value = data.value.Remove(data.value.Length - 1);
-                database.SaveItemAsync(data);
-                spinner.Adapter = new ArrayAdapter<string>(Activity, Android.Resource.Layout.SimpleListItem1, values.ToArray());
-                listView.Adapter = new ListViewAdapter(values);
+                AlertDialog.Builder alert = new AlertDialog.Builder(Activity);
+                alert.SetTitle("Delete variable");
+                alert.SetMessage("Do you want to delete this variable?");
+                alert.SetNegativeButton("Yes", (senderAlert, args) => {
+                    this.values.Remove(this.varSelected);
+                    Calc.Data data = database.GetItemAsync(shapeName + "Variable").Result;
+                    data.value = "";
+                    foreach (string i in values)
+                    {
+                        data.value += (i + "\n");
+                    }
+                    data.value = data.value.Remove(data.value.Length - 1);
+                    database.SaveItemAsync(data);
+                    spinner.Adapter = new ArrayAdapter<string>(Activity, Android.Resource.Layout.SimpleListItem1, values.ToArray());
+                    listView.Adapter = new ListViewAdapter(values);
 
-                data = database.GetItemAsync(shapeName + "Function").Result;
-                Calc.Function function = new Calc.Function(IO.FuncReader.getInstance().getFunctions(data.value));
-                function.remove(this.varSelected);
-                data.value = function.toString();
-                database.SaveItemAsync(data);
+                    data = database.GetItemAsync(shapeName + "Function").Result;
+                    Calc.Function function = new Calc.Function(IO.FuncReader.getInstance().getFunctions(data.value));
+                    function.remove(this.varSelected);
+                    data.value = function.toString();
+                    database.SaveItemAsync(data);
+                    Toast.MakeText(Activity, "Deleted!", ToastLength.Short).Show();
+                });
+                alert.SetPositiveButton("No", (senderAlert, args) => {
+
+                });
+                Dialog dialog = alert.Create();
+                dialog.Show();
             };
         }
 
