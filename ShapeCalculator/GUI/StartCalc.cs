@@ -89,6 +89,10 @@ namespace ShapeCalculator
         {
             btnCalculate = view.FindViewById<Button>(Resource.Id.btnStartCalcCalc);
             btnCalculate.Click += delegate {
+                if (vars.Count == 0){
+                    Toast.MakeText(Activity, "Calculate Fail!", ToastLength.Short).Show();
+                    return;
+                }
                 while (vars.Count > 0){
                     inputVars.Add(vars[0], -1);
                     vars.RemoveAt(0);
@@ -144,6 +148,9 @@ namespace ShapeCalculator
         {
             this.shapeSelected = this.shapes[e.Position];
             this.vars = IO.VarReader.getInstance().getVars(database, this.shapeSelected);
+            if (vars == null){
+                vars = new List<string>();
+            }
             spinner2.Adapter = new ArrayAdapter<string>(Activity, Android.Resource.Layout.SimpleSpinnerItem, vars.ToArray());
             lvResult.Adapter = null;
             inputVars = new Dictionary<string, double>();
