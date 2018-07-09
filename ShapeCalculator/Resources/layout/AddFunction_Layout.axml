@@ -8,8 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:rowCount="2"
-        android:columnCount="2"
-        android:layout_margin="15px">
+        android:columnCount="2">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -21,7 +20,8 @@
             android:textSize="15dp"
             android:gravity="center_vertical"
             android:padding="5px"
-            android:layout_margin="5px" />
+            android:layout_margin="20px"
+            android:background="#638696" />
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -32,7 +32,7 @@
             android:textSize="15dp"
             android:gravity="center_vertical"
             android:padding="5px"
-            android:layout_margin="5px"
+            android:layout_margin="20px"
             android:id="@+id/edtTarget" />
         <TextView
             android:layout_width="wrap_content"
@@ -45,7 +45,8 @@
             android:textSize="15dp"
             android:gravity="center_vertical"
             android:padding="5px"
-            android:layout_margin="5px" />
+            android:layout_margin="20px"
+            android:background="#638696" />
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -56,14 +57,17 @@
             android:textSize="15dp"
             android:gravity="center_vertical"
             android:padding="5px"
-            android:layout_margin="5px"
+            android:layout_margin="20px"
             android:id="@+id/edtVariable" />
     </GridLayout>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="70px"
         android:text="Formula"
-        android:gravity="center" />
+        android:gravity="center"
+        android:background="#638696"
+        android:layout_margin="20px"
+        android:padding="5px" />
     <EditText
         android:layout_width="match_parent"
         android:layout_height="200px"

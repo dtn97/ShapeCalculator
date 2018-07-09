@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:text="ABOUT US"
         android:gravity="center"
-        android:background="#00ac00"
+        android:background="#638696"
         android:layout_margin="20px"
         android:textSize="15dp"
         android:padding="15px"
