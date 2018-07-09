@@ -55,8 +55,29 @@ namespace ShapeCalculator
             initBtnCalculate(view);
             initListViewResult(view);
 
+            initBtnBackMenu(view);
+
             return view;
             //return base.OnCreateView(inflater, container, savedInstanceState);
+        }
+
+        private void initBtnBackMenu(View view)
+        {
+            Button button1 = view.FindViewById<Button>(Resource.Id.btnCalcBack);
+            button1.Click += delegate {
+
+                FragmentTransaction fragmentTransaction = this.FragmentManager.BeginTransaction();
+                fragmentTransaction.Replace(Resource.Id.mainLayout, new Start());
+                fragmentTransaction.Commit();
+            };
+
+            Button button2 = view.FindViewById<Button>(Resource.Id.btnCalcMenu);
+            button2.Click += delegate {
+
+                FragmentTransaction fragmentTransaction = this.FragmentManager.BeginTransaction();
+                fragmentTransaction.Replace(Resource.Id.mainLayout, new MainMenu());
+                fragmentTransaction.Commit();
+            };
         }
 
         private void initListViewResult(View view)

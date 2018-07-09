@@ -45,11 +45,6 @@
         android:padding="5px"
         android:textSize="15dp"
         android:layout_below="@id/StartCalcLayoutControl" />
-    <ListView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/lvStartCalcResult"
-        android:layout_below="@id/btnStartCalcEnter" />
     <Button
         android:layout_width="match_parent"
         android:layout_height="70px"
@@ -59,5 +54,38 @@
         android:layout_margin="20px"
         android:padding="5px"
         android:textSize="15dp"
-        android:layout_alignParentBottom="true" />
+        android:layout_below="@id/btnStartCalcEnter" />
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/lvStartCalcResult"
+        android:layout_below="@id/btnStartCalcCalc" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/CalcBackMenuLayout">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="70px"
+            android:layout_weight="1"
+            android:text="Back"
+            android:id="@+id/btnCalcBack"
+            android:background="#00ac00"
+            android:layout_margin="20px"
+            android:padding="5px"
+            android:textSize="15dp" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="70px"
+            android:layout_weight="1"
+            android:text="Menu"
+            android:id="@+id/btnCalcMenu"
+            android:background="#00ac00"
+            android:layout_margin="20px"
+            android:padding="5px"
+            android:textSize="15dp" />
+    </LinearLayout>
 </RelativeLayout>

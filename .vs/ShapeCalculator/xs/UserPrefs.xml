@@ -1,7 +1,7 @@
 ﻿<Properties StartupConfiguration="{1FC55136-F4DF-4FDD-97D9-D330340B29FF}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="ShapeCalculator/GUI/About.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="ShapeCalculator/GUI/StartCalc.cs">
     <Files>
-      <File FileName="ShapeCalculator/GUI/About.cs" Line="45" Column="15" />
+      <File FileName="ShapeCalculator/GUI/StartCalc.cs" Line="81" Column="10" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
