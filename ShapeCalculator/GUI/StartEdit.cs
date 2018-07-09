@@ -78,15 +78,16 @@ namespace ShapeCalculator
                     {
                         tmp = tmp.Remove(tmp.Length - 1);
                     }
-                    Calc.Data data = database.GetItemAsync("Shape").Result;
-                    data.value = tmp;
-                    database.SaveItemAsync(data);
+                    Calc.Data data1 = database.GetItemAsync("Shape").Result;
+                    data1.value = tmp;
+                    database.SaveItemAsync(data1);
 
-                    data = database.GetItemAsync(shape + "Variable").Result;
-                    database.DeleteItemAsync(data);
-
-                    data = database.GetItemAsync(shape + "Function").Result;
-                    database.DeleteItemAsync(data);
+                    Calc.Data data2 = database.GetItemAsync(shape + "Variable").Result;
+                    data2.value = "";
+                    database.SaveItemAsync(data2);
+                    Calc.Data data3 = database.GetItemAsync(shape + "Function").Result;
+                    data3.value = "";
+                    database.SaveItemAsync(data3);
                     Toast.MakeText(Activity, "Deleted!", ToastLength.Short).Show();
                 });
                 alert.SetPositiveButton("No", (senderAlert, args) => {

@@ -84,4 +84,12 @@
         android:padding="5px"
         android:text="Add"
         android:id="@+id/btnAddFunction" />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="70px"
+        android:background="#00ac00"
+        android:layout_margin="20px"
+        android:padding="5px"
+        android:text="Back"
+        android:id="@+id/btnAddFunctionBack" />
 </LinearLayout>

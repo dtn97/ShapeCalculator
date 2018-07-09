@@ -115,6 +115,10 @@ namespace ShapeCalculator
         {
             btnEnter = view.FindViewById<Button>(Resource.Id.btnStartCalcEnter);
             btnEnter.Click += delegate {
+                if (editText.Text.ToString().Equals("") || this.varSelected == null){
+                    Toast.MakeText(Activity, "Fail!", ToastLength.Short).Show();
+                    return;
+                }
                 vars.Remove(this.varSelected);
                 double value = double.Parse(editText.Text);
                 inputVars.Add(this.varSelected, value);

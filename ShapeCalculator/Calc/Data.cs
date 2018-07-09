@@ -11,7 +11,6 @@ namespace Calc
         public string value { get; set; }
         public Data()
         {
-            this.id = 0;
             this.name = "";
             this.value = "";
         }

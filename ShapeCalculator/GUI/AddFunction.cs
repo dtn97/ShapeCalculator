@@ -45,6 +45,11 @@ namespace ShapeCalculator
             edtFunc = view.FindViewById<EditText>(Resource.Id.edtFormula);
             initBtnAdd(view);
 
+            Button button = view.FindViewById<Button>(Resource.Id.btnAddFunctionBack);
+            button.Click += delegate {
+                callBack();
+            };
+
             return view;
             //return base.OnCreateView(inflater, container, savedInstanceState);
         }
