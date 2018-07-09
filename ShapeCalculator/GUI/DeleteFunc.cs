@@ -25,6 +25,8 @@ namespace ShapeCalculator
         private Spinner spinner;
         private Button btnDelete;
 
+        IO.MyDatabase database;
+
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -34,6 +36,7 @@ namespace ShapeCalculator
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
+            database = new IO.MyDatabase(Activity.Assets);
             shapeName = Arguments.GetString("shape");
             setFuncs();
             // Use this to return your custom view for this Fragment
@@ -57,8 +60,19 @@ namespace ShapeCalculator
             btnDelete = view.FindViewById<Button>(Resource.Id.btnDeleteInfo);
             btnDelete.Click += delegate {
 
-
-
+                this.funcs.Remove(this.funcSelected);
+                this.values.Remove(this.funcSelected);
+                Calc.Data data = database.GetItemAsync(shapeName + "Function").Result;
+                data.value = "";
+                foreach(KeyValuePair<string, List<string>> i in funcs){
+                    foreach(string j in i.Value){
+                        data.value += (j + "\n");
+                    }
+                }
+                data.value.Remove(data.value.Length - 1);
+                database.SaveItemAsync(data);
+                spinner.Adapter = new ArrayAdapter<string>(Activity, Android.Resource.Layout.SimpleListItem1, values.ToArray());
+                listView.Adapter = new ListViewAdapter(values);
             };
         }
 
@@ -69,7 +83,7 @@ namespace ShapeCalculator
 
         private void setFuncs()
         {
-            List<List<string>> tmp = IO.FuncReader.getInstance().getFunc(Activity.Assets, shapeName);
+            List<List<string>> tmp = IO.FuncReader.getInstance().getFunc(database, shapeName);
             funcs = new Dictionary<string, List<string>>();
             values = new List<string>();
             foreach(List<string> i in tmp){
