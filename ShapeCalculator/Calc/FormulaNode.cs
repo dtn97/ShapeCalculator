@@ -135,5 +135,26 @@ namespace Calc
         {
             base.activate = false;
         }
+
+        public bool containsVar(string var){
+            return (this.target.Equals(var)) || (this.variable.Contains(var));
+        }
+
+        public string toStringFunc(){
+            string res = "";
+
+            res += (this.target + "\n");
+            res += (this.name + "\n");
+            res += (this.exp + "\n");
+
+            string tmp = "";
+            foreach(string i in this.variable){
+                tmp += (i + " ");
+            }
+
+            res += (tmp + "\n");
+
+            return res;
+        }
     }
 }

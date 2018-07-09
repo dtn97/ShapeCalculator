@@ -70,6 +70,12 @@ namespace ShapeCalculator
                 database.SaveItemAsync(data);
                 spinner.Adapter = new ArrayAdapter<string>(Activity, Android.Resource.Layout.SimpleListItem1, values.ToArray());
                 listView.Adapter = new ListViewAdapter(values);
+
+                data = database.GetItemAsync(shapeName + "Function").Result;
+                Calc.Function function = new Calc.Function(IO.FuncReader.getInstance().getFunctions(data.value));
+                function.remove(this.varSelected);
+                data.value = function.toString();
+                database.SaveItemAsync(data);
             };
         }
 

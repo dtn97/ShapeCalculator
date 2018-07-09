@@ -109,5 +109,24 @@ namespace IO
             }
             return res;
         }
+
+        public List<List<string>> getFunctions(string str)
+        {
+            List<List<string>> res = new List<List<string>>();
+
+            string[] lines = str.Split(new string[] { "\n" }, StringSplitOptions.RemoveEmptyEntries);
+            int len = lines.Length;
+            for (int i = 0; i < len; i += 4)
+            {
+                List<string> tmp = new List<string>();
+                for (int j = 0; j < 4; ++j)
+                {
+                    tmp.Add(lines[i + j]);
+                }
+                res.Add(tmp);
+            }
+
+            return res;
+        }
     }
 }

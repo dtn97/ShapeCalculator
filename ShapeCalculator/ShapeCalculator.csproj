@@ -147,6 +147,7 @@
     <Compile Include="IO\FuncWriter.cs" />
     <Compile Include="IO\MyDatabase.cs" />
     <Compile Include="Calc\Data.cs" />
+    <Compile Include="Calc\Function.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
