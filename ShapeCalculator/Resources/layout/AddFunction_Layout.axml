@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#506670">
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:rowCount="2"
+        android:columnCount="2"
+        android:layout_margin="15px">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="0"
+            android:layout_row="0"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:text="Target"
+            android:textSize="15dp"
+            android:gravity="center_vertical"
+            android:padding="5px"
+            android:layout_margin="5px" />
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:layout_row="0"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="2"
+            android:textSize="15dp"
+            android:gravity="center_vertical"
+            android:padding="5px"
+            android:layout_margin="5px"
+            android:id="@+id/edtTarget" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="0"
+            android:layout_row="1"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:text="Variable"
+            android:textSize="15dp"
+            android:gravity="center_vertical"
+            android:padding="5px"
+            android:layout_margin="5px" />
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:layout_row="1"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="2"
+            android:textSize="15dp"
+            android:gravity="center_vertical"
+            android:padding="5px"
+            android:layout_margin="5px"
+            android:id="@+id/edtVariable" />
+    </GridLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="70px"
+        android:text="Formula"
+        android:gravity="center" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="200px"
+        android:id="@+id/edtFormula"
+        android:layout_marginLeft="20px"
+        android:layout_marginRight="20px"
+        android:layout_marginTop="10px"
+        android:layout_marginBottom="10px" />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="70px"
+        android:background="#00ac00"
+        android:layout_margin="20px"
+        android:padding="5px"
+        android:text="Add"
+        android:id="@+id/btnAddFunction" />
+</LinearLayout>

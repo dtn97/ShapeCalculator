@@ -69,7 +69,7 @@ namespace ShapeCalculator
                         data.value += (j + "\n");
                     }
                 }
-                data.value.Remove(data.value.Length - 1);
+                data.value = data.value.Remove(data.value.Length - 1);
                 database.SaveItemAsync(data);
                 spinner.Adapter = new ArrayAdapter<string>(Activity, Android.Resource.Layout.SimpleListItem1, values.ToArray());
                 listView.Adapter = new ListViewAdapter(values);

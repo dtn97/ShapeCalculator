@@ -176,6 +176,7 @@
     <AndroidResource Include="Resources\layout\EditShape_Layout.axml" />
     <AndroidResource Include="Resources\layout\DeleteInfo_Layout.axml" />
     <AndroidResource Include="Resources\layout\AddVariable_Layout.axml" />
+    <AndroidResource Include="Resources\layout\AddFunction_Layout.axml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />

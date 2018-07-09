@@ -16,6 +16,15 @@ namespace ShapeCalculator
 {
     public class AddFunction : Fragment
     {
+        Button btnAdd;
+        EditText edtTarget;
+        EditText edtVar;
+        EditText edtFunc;
+
+        private HashSet<string> vars;
+        IO.MyDatabase database;
+        private string shapeName;
+
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -25,10 +34,54 @@ namespace ShapeCalculator
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
+            shapeName = Arguments.GetString("shape");
+            database = new IO.MyDatabase(Activity.Assets);
+            vars = new HashSet<string>(IO.VarReader.getInstance().getVars(database, shapeName));
             // Use this to return your custom view for this Fragment
-            // return inflater.Inflate(Resource.Layout.YourFragment, container, false);
+            View view = inflater.Inflate(Resource.Layout.AddFunction_Layout, container, false);
 
-            return base.OnCreateView(inflater, container, savedInstanceState);
+            edtTarget = view.FindViewById<EditText>(Resource.Id.edtTarget);
+            edtVar = view.FindViewById<EditText>(Resource.Id.edtVariable);
+            edtFunc = view.FindViewById<EditText>(Resource.Id.edtFormula);
+            initBtnAdd(view);
+
+            return view;
+            //return base.OnCreateView(inflater, container, savedInstanceState);
+        }
+
+        private void initBtnAdd(View view)
+        {
+            btnAdd = view.FindViewById<Button>(Resource.Id.btnAddFunction);
+            btnAdd.Click += delegate {
+                if (edtVar.Text.ToString().Equals("") || edtFunc.Text.ToString().Equals("") || edtTarget.Text.ToString().Equals("")){
+                    callBack();
+                    return;
+                }
+                List<string> variable = new List<string>(edtVar.Text.ToString().Split(new String[] { " " }, StringSplitOptions.RemoveEmptyEntries));
+                variable.Add(edtTarget.Text);
+                foreach(string i in variable){
+                    if (!vars.Contains(i)){
+                        callBack();
+                        return;
+                    }
+                }
+                string name = edtTarget.Text + " = " + edtFunc.Text;
+                Calc.FormulaNode formulaNode = new Calc.FormulaNode(name, edtTarget.Text, edtFunc.Text, edtVar.Text, false);
+                string res = formulaNode.toStringFunc();
+                res = res.Remove(res.Length - 1);
+                Calc.Data data = database.GetItemAsync(shapeName + "Function").Result;
+                data.value += ("\n" + res);
+                database.SaveItemAsync(data);
+                callBack();
+            };
+        }
+
+        private void callBack()
+        {
+            Fragment fragment = new StartView();
+            FragmentTransaction ft = this.FragmentManager.BeginTransaction();
+            ft.Replace(Resource.Id.mainLayout, fragment);
+            ft.Commit();
         }
     }
 }

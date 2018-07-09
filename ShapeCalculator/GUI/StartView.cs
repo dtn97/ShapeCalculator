@@ -128,6 +128,17 @@ namespace ShapeCalculator
 
         private void initSpinners(View view)
         {
+            /*
+            if (Arguments.ContainsKey("shape")){
+                string name = Arguments.GetString("shape");
+                int index = shapes.IndexOf(name);
+                shapes[index] = shapes[0];
+                shapes[0] = name;
+                types[0] = "Function";
+                types[1] = "Variable";
+            }
+            */
+
             spinner1 = view.FindViewById<Spinner>(Resource.Id.spnStartViewShape);
             spinner1.Adapter = new ArrayAdapter<string>(Activity, Android.Resource.Layout.SimpleSpinnerItem, shapes.ToArray());
             spinner1.ItemSelected += new EventHandler<AdapterView.ItemSelectedEventArgs>(spinner1_ItemSelected);
@@ -135,6 +146,7 @@ namespace ShapeCalculator
             spinner2 = view.FindViewById<Spinner>(Resource.Id.spnStartViewType);
             spinner2.Adapter = new ArrayAdapter<string>(Activity, Android.Resource.Layout.SimpleSpinnerItem, types.ToArray());
             spinner2.ItemSelected += new EventHandler<AdapterView.ItemSelectedEventArgs>(spinner2_ItemSelected);
+
         }
 
         private void spinner1_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e){

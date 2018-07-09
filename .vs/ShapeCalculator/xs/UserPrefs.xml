@@ -1,9 +1,8 @@
 ﻿<Properties StartupConfiguration="{1FC55136-F4DF-4FDD-97D9-D330340B29FF}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="ShapeCalculator/Calc/Function.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="ShapeCalculator/GUI/AddFunction.cs">
     <Files>
-      <File FileName="ShapeCalculator/GUI/AddVariable.cs" Line="66" Column="62" />
+      <File FileName="ShapeCalculator/GUI/AddFunction.cs" Line="72" Column="46" />
       <File FileName="ShapeCalculator/GUI/StartView.cs" Line="117" Column="47" />
-      <File FileName="ShapeCalculator/Calc/Function.cs" Line="39" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

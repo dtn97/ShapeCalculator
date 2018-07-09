@@ -41,7 +41,7 @@ namespace Calc
             }
 
             if (res[res.Length - 1] == '\n')
-                res.Remove(res.Length - 1);
+                res = res.Remove(res.Length - 1);
 
             return res;
         }
